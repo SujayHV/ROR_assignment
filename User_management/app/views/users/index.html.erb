@@ -1,0 +1,39 @@
+<h1>The Existing users are</h1>
+<style>
+table{
+	
+   font-family: arial, sans-serif;
+   border-collapse: collapse;
+   width: 100%;
+}
+
+td, th {
+   border: 1px solid cyan ;
+
+   text-align: left;
+   padding: 10px;
+}
+
+tr:nth-child(even) {
+
+   background-color: green ;
+}
+
+</style>
+<table>
+<tr>
+<th>first_name</th>
+<th>last_name</th>
+<th>email</th>
+</tr>
+<% @users.each do |user| %>
+<tr>
+<td><%= user.first_name %></td>
+<td><%= user.last_name %></td>
+<td><%= user.email %></td>
+<td><%= link_to 'Edit', user_edit_path(user) %></td>
+<td><%= link_to 'Destroy', user_destroy_path(user),method: :delete,
+data: {confirm: 'Are you sure?'} %></td>
+</tr>
+<% end %>
+</table>
